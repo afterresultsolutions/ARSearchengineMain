@@ -19,9 +19,9 @@ export default function App() {
   };
 
   return (
-    <div style={{ 
-      fontFamily: "sans-serif", 
-      display: "flex", 
+    <div style={{
+      fontFamily: "sans-serif",
+      display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
@@ -29,46 +29,31 @@ export default function App() {
       backgroundColor: "#f9f9f9"
     }}>
       <h1 style={{ marginBottom: "20px" }}>Search Our Services</h1>
-      
+
       <input
         type="text"
         value={query}
         onChange={e => setQuery(e.target.value)}
         placeholder="Type a service (e.g. SEO)"
-        style={{ padding: "10px", width: "300px", borderRadius: "8px", border: "1px solid #ccc" }}
+        style={{ padding: "10px", width: "300px", border: "1px solid #ccc", borderRadius: "8px" }}
       />
-      
-      <button 
-        onClick={handleSearch} 
-        style={{ marginTop: "10px", padding: "10px 20px", borderRadius: "8px", background: "#000", color: "#fff", border: "none" }}
+
+      <button
+        onClick={handleSearch}
+        style={{ marginTop: "15px", padding: "10px 20px", borderRadius: "8px", background: "#0070f3", color: "#fff", border: "none" }}
       >
         Search
       </button>
 
       {result && (
-        <div style={{ marginTop: "30px", textAlign: "center" }}>
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
           <h2>{result.name}</h2>
           <p>{result.details}</p>
           {result.name !== "Not Found" && (
-            <div style={{ marginTop: "20px" }}>
-              <button 
-                onClick={() => alert("Learn more about " + result.name)} 
-                style={{ margin: "5px", padding: "10px 15px", borderRadius: "6px", background: "#007bff", color: "#fff", border: "none" }}
-              >
-                Learn More
-              </button>
-              <button 
-                onClick={() => alert("Booking started for " + result.name)} 
-                style={{ margin: "5px", padding: "10px 15px", borderRadius: "6px", background: "#28a745", color: "#fff", border: "none" }}
-              >
-                Book Now
-              </button>
-              <button 
-                onClick={() => window.open("https://wa.me/919050983530?text=Hello%2C+I+am+interested+in+" + encodeURIComponent(result.name))} 
-                style={{ margin: "5px", padding: "10px 15px", borderRadius: "6px", background: "#25d366", color: "#fff", border: "none" }}
-              >
-                Contact
-              </button>
+            <div style={{ marginTop: "10px" }}>
+              <a href="#" style={{ margin: "0 10px" }}>Learn More</a>
+              <a href="https://wa.me/919050983530" target="_blank" rel="noopener noreferrer" style={{ margin: "0 10px" }}>Book Now</a>
+              <a href="mailto:youremail@example.com" style={{ margin: "0 10px" }}>Contact</a>
             </div>
           )}
         </div>
